@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 export default function Posts(){
     const infoPosts = [
         {
@@ -31,6 +33,39 @@ export default function Posts(){
 
 
 function Post(props){
+    let [savePost, setSavepost] = useState("bookmark-outline");
+    let [likePost, setLikePost] = useState("heart-outline");
+    let [curtiu, setCurtui] = useState("no-like");
+    let [qtdCurtidas, setQtdCurtidas] = useState(101.523);
+    
+
+    function salvaPost(){
+      if(savePost === "bookmark-outline"){
+        setSavepost("bookmark")
+      } else{
+        setSavepost("bookmark-outline");
+      }
+    }
+
+    function like(){
+      if(likePost === "heart-outline"){
+        setLikePost("heart");
+        setCurtui('like');
+        setQtdCurtidas(qtdCurtidas + 0.001);
+      } else{
+        setLikePost("heart-outline");
+        setCurtui('no-like');
+        setQtdCurtidas(qtdCurtidas - 0.001);
+      }
+    }
+
+    function likeImg(){
+      if(likePost === "heart-outline"){
+        setLikePost("heart");
+        setCurtui('like');
+      }
+    }
+
     return(
         <div class="post">
             <div class="topo">
@@ -44,25 +79,25 @@ function Post(props){
             </div>
 
             <div class="conteudo">
-              <img src={`assets/img/${props.post}.svg`} alt={props.post}/>
+              <img src={`assets/img/${props.post}.svg`} alt={props.post} onDoubleClick={() => likeImg()}/>
             </div>
 
             <div class="fundo">
               <div class="acoes">
                 <div>
-                  <ion-icon name="heart-outline"></ion-icon>
+                  <ion-icon name={likePost} class={curtiu} onClick = {() => like()}></ion-icon>
                   <ion-icon name="chatbubble-outline"></ion-icon>
                   <ion-icon name="paper-plane-outline"></ion-icon>
                 </div>
                 <div>
-                  <ion-icon name="bookmark-outline"></ion-icon>
+                  <ion-icon name={savePost} onClick = {() => salvaPost()}></ion-icon>
                 </div>
               </div>
 
               <div class="curtidas">
                 <img src={`assets/img/${props.curtida}.svg`} alt={props.curtida}/>
                 <div class="texto">
-                  Curtido por <strong>{props.curtida}</strong> e <strong>outras 101.523 pessoas</strong>
+                  Curtido por <strong>{props.curtida}</strong> e <strong>outras {qtdCurtidas} pessoas</strong>
                 </div>
               </div>
             </div>
