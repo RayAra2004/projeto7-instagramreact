@@ -95,7 +95,7 @@ function Post(props){
             <div className="fundo">
               <div className="acoes">
                 <div>
-                  <ion-icon name={likePost} className={curtiu} onClick = {() => like()} data-test="like-post"></ion-icon>
+                  <ion-icon name={likePost} class={curtiu} onClick = {() => like()} data-test="like-post"></ion-icon>
                   <ion-icon name="chatbubble-outline"></ion-icon>
                   <ion-icon name="paper-plane-outline"></ion-icon>
                 </div>
