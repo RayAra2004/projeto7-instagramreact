@@ -19,9 +19,6 @@ export default function Stories(){
             user: 'respondeai'
         },
         {
-            user: 'wawawicomics'
-        },
-        {
             user: 'filomoderna'
         },
         {
@@ -31,9 +28,9 @@ export default function Stories(){
 
 
     return(
-        <div class="stories">
-            {infoStories.map(storie => <Storie user = {storie.user}/>)};
-            <div class="setinha">
+        <div className="stories">
+            {infoStories.map(storie => <Storie key={storie.user} user = {storie.user}/>)};
+            <div className="setinha">
                 <ion-icon name="chevron-forward-circle"></ion-icon>
             </div>
         </div>
@@ -42,11 +39,11 @@ export default function Stories(){
 
 function Storie(props){
     return(
-        <div class="story">
-            <div class="imagem">
+        <div className="story">
+            <div className="imagem">
                 <img src= {`assets/img/${props.user}.svg`} alt={props.user}/>
             </div>
-            <div class="usuario">
+            <div className="usuario">
               {props.user}
             </div>
         </div>

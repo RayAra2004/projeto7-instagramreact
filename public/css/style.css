@@ -310,3 +310,32 @@ ion-icon {
   color: red;
 }
 
+.conteudo{
+  position: relative;
+}
+
+.heart{
+  position: absolute;
+  left: 150px;
+  top: 150px;
+  font-size: 300px;
+  color: #FFFFFF;
+}
+
+.animate{
+  animation-duration: 0.3s;
+  animation-name: expand;
+}
+
+@keyframes expand {
+  from{
+    scale: 0.2;
+  }to{
+    scale: 1.0;
+  }
+}
+
+.hidden{
+  display: none;
+}
+

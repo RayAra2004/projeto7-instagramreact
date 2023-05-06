@@ -27,8 +27,8 @@ export default function Suggestions(){
     ]
 
     return(
-        <div class="sugestoes">
-            <div class="titulo">
+        <div className="sugestoes">
+            <div className="titulo">
                 Sugestões para você
                 <div>Ver tudo</div>
             </div>
@@ -40,16 +40,16 @@ export default function Suggestions(){
 
 function Suggestion(props){
     return (
-        <div class="sugestao">
-            <div class="usuario">
+        <div className="sugestao">
+            <div className="usuario">
               <img src= {props.img} alt= {props.img}/>
-              <div class="texto">
-                <div class="nome">{props.nome}</div>
-                <div class="razao">{props.descricao}</div>
+              <div className="texto">
+                <div className="nome">{props.nome}</div>
+                <div className="razao">{props.descricao}</div>
               </div>
             </div>
 
-            <div class="seguir">Seguir</div>
+            <div className="seguir">Seguir</div>
         </div>
     );
 }
